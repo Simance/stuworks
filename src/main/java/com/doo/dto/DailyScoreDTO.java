@@ -13,6 +13,7 @@ public class DailyScoreDTO extends Student {
     private int writingapecNum;
     private int reviseNum;
     private int workNum;
+    private int monthWorkNum;
 
     public List<DailyScore> getDailyScores() {
         return dailyScores;
@@ -60,5 +61,13 @@ public class DailyScoreDTO extends Student {
 
     public void setWorkNum(int workNum) {
         this.workNum = workNum;
+    }
+
+    public int getMonthWorkNum() {
+        return monthWorkNum;
+    }
+
+    public void setMonthWorkNum(int monthWorkNum) {
+        this.monthWorkNum = monthWorkNum;
     }
 }

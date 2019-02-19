@@ -3,14 +3,15 @@ package com.doo.pojo;
 public class ExamScore {
     private Integer id;
 
-    private Integer scoreId;
+    private Integer examId;
 
     private Integer stuId;
 
     private Double score;
 
-    public ExamScore(Integer id, Integer stuId, Double score) {
+    public ExamScore(Integer id, Integer examId, Integer stuId, Double score) {
         this.id = id;
+        this.examId = examId;
         this.stuId = stuId;
         this.score = score;
     }
@@ -27,12 +28,12 @@ public class ExamScore {
         this.id = id;
     }
 
-    public Integer getScoreId() {
-        return scoreId;
+    public Integer getExamId() {
+        return examId;
     }
 
-    public void setScoreId(Integer scoreId) {
-        this.scoreId = scoreId;
+    public void setExamId(Integer examId) {
+        this.examId = examId;
     }
 
     public Integer getStuId() {

@@ -1,9 +1,6 @@
 package com.doo.dao;
 
 import com.doo.pojo.ExamScore;
-import com.doo.pojo.ExamScoreEX;
-
-import java.util.List;
 
 public interface ExamScoreMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,6 +14,4 @@ public interface ExamScoreMapper {
     int updateByPrimaryKeySelective(ExamScore record);
 
     int updateByPrimaryKey(ExamScore record);
-
-    List<ExamScoreEX> selectByStuId(int stuId);
 }

@@ -5,9 +5,15 @@ public class Student {
 
     private String name;
 
-    public Student(Integer id, String name) {
+    private Integer classId;
+
+    private Integer stuId;
+
+    public Student(Integer id, String name, Integer classId, Integer stuId) {
         this.id = id;
         this.name = name;
+        this.classId = classId;
+        this.stuId = stuId;
     }
 
     public Student() {
@@ -28,5 +34,21 @@ public class Student {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
+    }
+
+    public Integer getStuId() {
+        return stuId;
+    }
+
+    public void setStuId(Integer stuId) {
+        this.stuId = stuId;
     }
 }

@@ -4,12 +4,13 @@
   <resultMap id="BaseResultMap" type="com.doo.pojo.ExamScore" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="exam_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="stu_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="score" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="score" jdbcType="DOUBLE" javaType="java.lang.Double" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, stu_id, score
+    id, exam_id, stu_id, score
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -22,16 +23,19 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.doo.pojo.ExamScore" >
-    insert into exam_score (id, stu_id, score
-      )
-    values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}
-      )
+    insert into exam_score (id, exam_id, stu_id, 
+      score)
+    values (#{id,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, 
+      #{score,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.doo.pojo.ExamScore" >
     insert into exam_score
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="examId != null" >
+        exam_id,
       </if>
       <if test="stuId != null" >
         stu_id,
@@ -44,30 +48,37 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="examId != null" >
+        #{examId,jdbcType=INTEGER},
+      </if>
       <if test="stuId != null" >
         #{stuId,jdbcType=INTEGER},
       </if>
       <if test="score != null" >
-        #{score,jdbcType=INTEGER},
+        #{score,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.doo.pojo.ExamScore" >
     update exam_score
     <set >
+      <if test="examId != null" >
+        exam_id = #{examId,jdbcType=INTEGER},
+      </if>
       <if test="stuId != null" >
         stu_id = #{stuId,jdbcType=INTEGER},
       </if>
       <if test="score != null" >
-        score = #{score,jdbcType=INTEGER},
+        score = #{score,jdbcType=DOUBLE},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.doo.pojo.ExamScore" >
     update exam_score
-    set stu_id = #{stuId,jdbcType=INTEGER},
-      score = #{score,jdbcType=INTEGER}
+    set exam_id = #{examId,jdbcType=INTEGER},
+      stu_id = #{stuId,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -12,6 +12,8 @@ public class ExamDTO extends ExamScore {
     private String stuName;
     private List<ExamScoreEX> examScores;
     private Double averScore;
+    private Integer stuTableId;
+
 
     public String getStuName() {
         return stuName;
@@ -35,5 +37,13 @@ public class ExamDTO extends ExamScore {
 
     public void setAverScore(Double averScore) {
         this.averScore = averScore;
+    }
+
+    public Integer getStuTableId() {
+        return stuTableId;
+    }
+
+    public void setStuTableId(Integer stuTableId) {
+        this.stuTableId = stuTableId;
     }
 }

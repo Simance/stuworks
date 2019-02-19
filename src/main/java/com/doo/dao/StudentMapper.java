@@ -2,8 +2,6 @@ package com.doo.dao;
 
 import com.doo.pojo.Student;
 
-import java.util.List;
-
 public interface StudentMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,6 +14,4 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
-
-    List<Student> selectAll();
 }
